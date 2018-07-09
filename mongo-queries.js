@@ -108,7 +108,6 @@ db.notes;
 // });
 
 // 23. Write a MongoDB query to remove the title fields from all documents in the collection notes with _id less than or equal to "000000000000000000000003".
-
 // db.notes.update({
 //   _id: {$lte: '000000000000000000000003'}
 // },{
@@ -118,17 +117,39 @@ db.notes;
 // });
 
 // 24. Write a MongoDB query to remove the document from the collection notes that has an _id "000000000000000000000017".
-
 // db.notes.deleteOne({
 //   _id: '000000000000000000000017'
 // });
 
 // 25. Write a MongoDB query to remove the documents from the collection notes that have an _id which is not less than "000000000000000000000018".
-
 // db.notes.deleteMany({
-//   _id: {$gte:'000000000000000000000018'}
+//   _id: {$not: {$lt:'000000000000000000000018'}}
 // });
 
-db.notes.find().sort({_id: 1}).pretty();
+// 26. Write a MongoDB query to remove the documents from the collection notes that have an _id which is greater than or equal to "000000000000000000000013" and contain the string 'dogs' in the title.
+// db.notes.deleteMany({
+//   _id: {$gte:'000000000000000000000013'},
+//   title: {$regex: /dogs/}
+// });
+
+// 27. Write a MongoDB query to display all the documents from the collection notes which do not have a title field.
+// db.notes.find({
+//   title: {$exists: false}
+// });
+
+// 28. Write a MongoDB query to remove all the documents from the collection notes which contain the string 'cat' in the title but not the string 'the'.
+// db.notes.deleteMany({
+//   $and: [{title: {$regex: /cat/i}}, {title: {$not: /the/i}}]
+// });
+
+// 29. Write a MongoDB query to display all the documents from the collection notes that have a title field which does not contain the string 'dogs' and does contain a title field.
+// db.notes.find({
+//   $and: [{title: {$not: /dog/i}}, {title:{$exists:true}}]
+// }).sort({_id:1}).pretty();
+
+
+
+// db.notes.find({},{_id: 1}).sort({_id: 1}).pretty();
+// db.notes.find().sort({_id: 1}).pretty();
 // db.notes.find({_id: '000000000000000000000017'}).pretty();
 // db.notes.find({title: {$regex: /Anime/}}).pretty();
