@@ -89,8 +89,46 @@ db.notes;
 //   multi: true
 // });
 
+// 21. Write a MongoDB query to remove only the title field from the document in the collection notes with _id "000000000000000000000008".
 
+// db.notes.update({
+//   _id: '000000000000000000000008'
+// }, {
+//   $unset: {title:1}
+// });
 
-// db.notes.find().sort({_id: 1}).pretty();
-// db.notes.find({_id: '000000000000000000000007'}).pretty();
+// 22. Write a MongoDB query to remove the content fields from all documents in the collection notes with _id less than or equal to "000000000000000000000006".
+
+// db.notes.update({
+//   _id: {$lte: '000000000000000000000006'}
+// },{
+//   $unset: {content:1}
+// },{
+//   multi: true
+// });
+
+// 23. Write a MongoDB query to remove the title fields from all documents in the collection notes with _id less than or equal to "000000000000000000000003".
+
+// db.notes.update({
+//   _id: {$lte: '000000000000000000000003'}
+// },{
+//   $unset: {title:1}
+// },{
+//   multi: true
+// });
+
+// 24. Write a MongoDB query to remove the document from the collection notes that has an _id "000000000000000000000017".
+
+// db.notes.deleteOne({
+//   _id: '000000000000000000000017'
+// });
+
+// 25. Write a MongoDB query to remove the documents from the collection notes that have an _id which is not less than "000000000000000000000018".
+
+// db.notes.deleteMany({
+//   _id: {$gte:'000000000000000000000018'}
+// });
+
+db.notes.find().sort({_id: 1}).pretty();
+// db.notes.find({_id: '000000000000000000000017'}).pretty();
 // db.notes.find({title: {$regex: /Anime/}}).pretty();
