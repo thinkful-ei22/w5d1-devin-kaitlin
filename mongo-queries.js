@@ -32,4 +32,17 @@ db.notes;
 // 10. Write a MongoDB query to display the documents from the collection notes which have an _id that is greater than "000000000000000000000007".
 // db.notes.find({_id: {$gt: '000000000000000000000007'}});
 
+// 11. Write a MongoDB query to display the documents from the collection notes which have an _id which is greater than or equal to "000000000000000000000009" but less than or equal to "000000000000000000000017".
+// db.notes.find({_id: {$gt: '000000000000000000000009', $lt: '000000000000000000000017'}});
 
+// 12. Write a MongoDB query to display the documents from the collection notes which have an _id which is less than or equal to "000000000000000000000007".
+// db.notes.find({_id: {$lte: '000000000000000000000007'}});
+
+// 13. Write a MongoDB query to display only one document from the collection notes.
+// db.notes.findOne();
+
+// 14. Write a MongoDB query to display only the title of one document from the collection notes (_id can be included).
+// db.notes.findOne({}, {title: 1});
+
+// 15. Write a MongoDB query to display only the title of one document from the collection notes (_id excluded).
+// db.notes.findOne({}, {_id: 0, title: 1});
