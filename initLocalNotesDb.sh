@@ -1,0 +1,1 @@
+ mongoimport --db noteful --collection notes --drop --jsonArray --file ./noteful.json
